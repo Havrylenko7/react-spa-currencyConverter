@@ -1,50 +1,42 @@
 import React from 'react';
-import styled from 'styled-components';
-import 'bootstrap/dist/css/bootstrap.min.css'
-import { ListGroup, Nav, Card } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import { Routes, Route } from 'react-router-dom';
+
+import Navigation from './components/Navigation';
+import Converter from './components/Converter';
+import Rates from './components/Rates';
+import Grid from './styled/Grid';
+
+import { useDispatch, useSelector } from 'react-redux';
+import { getCurrencyFetch } from './store/actions';
 
 
 function App() {
+  
+  const dispatch = useDispatch();
+  const rates = useSelector(state => state.myFirstReducer.rates);
 
-  const Grid = styled.div`
-  display: grid;
-  max-height: 100%;
-  grid-gap: 20px;
-  padding: 20px;
-  margin: 7.5% 25%;
-  border-radius: 10px;
-  background-color: #263270;
-  @media (max-width: 850px) {
-    margin: 5% 20%;
-  }
-  @media (max-width: 550px) {
-    margin: 2.5% 15%;
-  }
-  `;
+  React.useEffect(() => {
+    dispatch(getCurrencyFetch())
+  }, [])
 
-  return (
-    <Grid>
-      <Nav justify variant="pills" defaultActiveKey="/rates">
-        <Nav.Item>
-          <Nav.Link eventKey="/rates" style={{color: "white"}}>Exchange rates</Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link eventKey="/" style={{color: "white"}}>Currency converter</Nav.Link>
-        </Nav.Item>
-      </Nav>
-      <ListGroup>
-        <ListGroup.Item variant="primary">Rates</ListGroup.Item>
-        <ListGroup.Item variant="light">Rates</ListGroup.Item>
-        <ListGroup.Item variant="primary">Rates</ListGroup.Item>
-        <ListGroup.Item variant="light">Rates</ListGroup.Item>
-        <ListGroup.Item variant="primary">Rates</ListGroup.Item>
-        <ListGroup.Item variant="light">Rates</ListGroup.Item>
-      </ListGroup>
-      <Card style={{height: "200px"}}>
-        Currency converter (Formik)
-      </Card>
-    </Grid>
-  );
+  // console.log(rates.eur)
+
+  if (rates.eur === undefined) {
+    return <div className="loading">Loading...</div>;
+  } else {
+    return (
+      <Grid>
+        <Navigation />
+          <Routes>  
+              <Route path="/rates" element={<Rates />}/>
+              <Route path="/converter" element={<Converter />}/>
+          </Routes> 
+        {/* <div>{console.log(rates.eur[Object.keys(rates.eur)[0]])}</div> */}
+      </Grid>
+    );
+  }
 }
 
 export default App;
