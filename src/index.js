@@ -6,8 +6,8 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { combineReducers, createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from '@redux-saga/core';
-import myFirstReducer from './store/reducer';
-import mySaga from './store/sagas';
+import myFirstReducer from './redux/ducks/reducer';
+import mySaga from './redux/ducks/sagas';
 
 const sagaMiddleware = createSagaMiddleware();
 const rootReducer = combineReducers({ myFirstReducer });

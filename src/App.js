@@ -9,10 +9,10 @@ import Rates from './components/Rates';
 import Grid from './styled/Grid';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { getCurrencyFetch } from './store/actions';
+import { getCurrencyFetch } from './redux/ducks/actions';
 
 
-function App() {
+const App = () => {
   
   const dispatch = useDispatch();
   const rates = useSelector(state => state.myFirstReducer.rates);
@@ -20,8 +20,6 @@ function App() {
   React.useEffect(() => {
     dispatch(getCurrencyFetch())
   }, [])
-
-  // console.log(rates.eur)
 
   if (rates.eur === undefined) {
     return <div className="loading">Loading...</div>;
@@ -33,7 +31,6 @@ function App() {
               <Route path="/rates" element={<Rates />}/>
               <Route path="/converter" element={<Converter />}/>
           </Routes> 
-        {/* <div>{console.log(rates.eur[Object.keys(rates.eur)[0]])}</div> */}
       </Grid>
     );
   }
