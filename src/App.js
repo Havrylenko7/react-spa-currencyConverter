@@ -6,13 +6,12 @@ import { Routes, Route } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import Converter from './components/Converter';
 import Rates from './components/Rates';
-import Grid from './styled/Grid';
-
+import Grid from './styled/App';
 import { useDispatch, useSelector } from 'react-redux';
-import { getCurrencyFetch } from './store/actions';
+import { getCurrencyFetch } from './redux/ducks/actions';
 
 
-function App() {
+const App = () => {
   
   const dispatch = useDispatch();
   const rates = useSelector(state => state.myFirstReducer.rates);
@@ -21,19 +20,16 @@ function App() {
     dispatch(getCurrencyFetch())
   }, [])
 
-  // console.log(rates.eur)
-
   if (rates.eur === undefined) {
     return <div className="loading">Loading...</div>;
   } else {
     return (
       <Grid>
         <Navigation />
-          <Routes>  
-              <Route path="/rates" element={<Rates />}/>
-              <Route path="/converter" element={<Converter />}/>
-          </Routes> 
-        {/* <div>{console.log(rates.eur[Object.keys(rates.eur)[0]])}</div> */}
+        <Routes>  
+          <Route path="/rates" element={<Rates />}/>
+          <Route path="/converter" element={<Converter />}/>
+        </Routes> 
       </Grid>
     );
   }

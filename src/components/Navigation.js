@@ -1,13 +1,14 @@
 import { Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { BootNav } from '../styled/Navigation';
 
 const Navigation = () => 
   <Nav justify variant="pills">
     <Nav.Item>
-      <Nav.Link eventKey="/1" as={Link} to="/rates" style={{color: "white"}} >Exchange rates</Nav.Link>
+      <BootNav as={Link} to="/rates">Exchange rates</BootNav>
     </Nav.Item>
     <Nav.Item>
-      <Nav.Link eventKey="/2" as={Link} to="/converter" style={{color: "white"}}>Currency converter</Nav.Link>
+      <BootNav as={Link} to="/converter">Currency converter</BootNav>
     </Nav.Item>
   </Nav>
 ;
