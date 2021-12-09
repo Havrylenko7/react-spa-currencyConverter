@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { color, media } from './Global';
 
 const Grid = styled.div`
   display: grid;
@@ -10,11 +11,12 @@ const Grid = styled.div`
   margin: 7.5% 25%;
   border-radius: 10px;
   background-color: #263270;
-  box-shadow: 0px 10px 25px 000;
-    @media (max-width: 850px) {
+  box-shadow: 0px 10px 25px ${color.black};
+  
+    @media (max-width: ${media.tabletWidth}) {
       margin: 5% 20%;
     }
-    @media (max-width: 550px) {
+    @media (max-width: ${media.phoneWidth}) {
       margin: 2.5% 15%;
   }
 `;

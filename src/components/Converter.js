@@ -7,7 +7,6 @@ import { BootCard, Option } from '../styled/Converter';
 const Converter = () => {
 
   const rates = useSelector(state => state.myFirstReducer.rates);
-
   const ratesEntries = [...Object.entries(rates.eur)];
 
   return (
@@ -35,7 +34,7 @@ const Converter = () => {
             <br />
             <div>
               {values.firstSelected.length && values.secondSelected.length > 0 ? (
-              <div>{(values.secondSelected/values.firstSelected).toFixed(2)}</div>
+                <div>{(values.secondSelected/values.firstSelected).toFixed(2)}</div>
               ) : null}
             </div>
           </div>

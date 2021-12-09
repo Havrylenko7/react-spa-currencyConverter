@@ -6,8 +6,7 @@ import { Routes, Route } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import Converter from './components/Converter';
 import Rates from './components/Rates';
-import Grid from './styled/Grid';
-
+import Grid from './styled/App';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCurrencyFetch } from './redux/ducks/actions';
 
@@ -27,10 +26,10 @@ const App = () => {
     return (
       <Grid>
         <Navigation />
-          <Routes>  
-              <Route path="/rates" element={<Rates />}/>
-              <Route path="/converter" element={<Converter />}/>
-          </Routes> 
+        <Routes>  
+          <Route path="/rates" element={<Rates />}/>
+          <Route path="/converter" element={<Converter />}/>
+        </Routes> 
       </Grid>
     );
   }
