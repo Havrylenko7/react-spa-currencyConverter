@@ -1,6 +1,7 @@
 export const color = {
   black: 'black',
-  white: 'white'
+  white: 'white',
+  blue: '#263270'
 }
 
 export const media = {

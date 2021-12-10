@@ -1,4 +1,5 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
+
 import { GET_CURRENCY_FETCH, GET_CURRENCY_SUCCESS } from './actions';
 
 function currencyFetch() {

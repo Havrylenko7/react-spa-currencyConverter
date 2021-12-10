@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import { color, media } from './Global';
 
 const Grid = styled.div`
@@ -10,8 +11,8 @@ const Grid = styled.div`
   padding: 20px;
   margin: 7.5% 25%;
   border-radius: 10px;
-  background-color: #263270;
-  box-shadow: 0px 10px 25px ${color.black};
+  background-color: ${color.blue};
+  box-shadow: 0 10px 25px ${color.black};
   
     @media (max-width: ${media.tabletWidth}) {
       margin: 5% 20%;

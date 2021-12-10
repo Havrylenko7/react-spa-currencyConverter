@@ -1,8 +1,8 @@
 import React from 'react'; 
-import { Form } from 'react-bootstrap';
 import { Formik, Field } from 'formik';
 import { useSelector } from 'react-redux';
-import { BootCard, Option } from '../styled/Converter';
+
+import { BootCard, CoverOption, BootField, BootForm, BootBody} from '../styled/Converter';
 
 const Converter = () => {
 
@@ -12,31 +12,29 @@ const Converter = () => {
   return (
     <BootCard>
       <Formik
-        initialValues={{ entries: ratesEntries, firstSelected: '', secondSelected: '' }}
+        initialValues={{ entries: ratesEntries, firstSelected: '', secondSelected: '', amount: '0'}}
         render={({ values }) => (
           <div>
-            <Field as={Form.Select} size="lg" name="firstSelected">
-              <Option>Pick currency</Option>
+            <Field as={BootField} size="lg" name="firstSelected">
+              <CoverOption>Pick currency</CoverOption>
               {values.entries.map((item) => (
                 <option key={item} value={`${item[1]}`}>
                   {item[0]}
                 </option>
               ))}
             </Field>
-            <Field as={Form.Select}  size="lg" name="secondSelected">
-              <Option>Convert into</Option>
+            <Field as={BootField}  size="lg" name="secondSelected">
+              <CoverOption>Convert into</CoverOption>
               {values.entries.map((item) => (
                 <option key={item} value={`${item[1]}`}>
                   {item[0]}
                 </option>
               ))}        
             </Field>
-            <br />
-            <div>
-              {values.firstSelected.length && values.secondSelected.length > 0 ? (
-                <div>{(values.secondSelected/values.firstSelected).toFixed(2)}</div>
+            <Field as={BootForm} type="number" name="amount" min="1"></Field>
+              {values.firstSelected.length && values.secondSelected.length && values.amount > 0 ? (
+              <BootBody>{(values.secondSelected/values.firstSelected*values.amount).toFixed(2)}</BootBody>
               ) : null}
-            </div>
           </div>
         )}
       />
