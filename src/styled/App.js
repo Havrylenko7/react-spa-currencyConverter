@@ -9,7 +9,7 @@ const Grid = styled.div`
   max-height: 100%;
   grid-gap: 20px;
   padding: 20px;
-  margin: 7.5% 25%;
+  margin: 7.5% 30%;
   border-radius: 10px;
   background-color: ${color.blue};
   box-shadow: 0 10px 25px ${color.black};

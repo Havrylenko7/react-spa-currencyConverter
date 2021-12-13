@@ -5,8 +5,7 @@ import { useSelector } from 'react-redux';
 import { BootCard, CoverOption, BootField, BootForm, BootBody} from '../styled/Converter';
 
 const Converter = () => {
-
-  const rates = useSelector(state => state.myFirstReducer.rates);
+  const rates = useSelector(state => state.currencyReducer.rates);
   const ratesEntries = [...Object.entries(rates.eur)];
 
   return (
