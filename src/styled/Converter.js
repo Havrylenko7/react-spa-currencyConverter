@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { Card, Form } from 'react-bootstrap';
 
+import { color } from './Global';
+
 export const BootCard = styled(Card)`
   height: 100%;
 `;
@@ -10,22 +12,21 @@ export const BootField = styled(Form.Select)`
   font-size: 18px;
   margin: 0.5% 0;
 
-
   ::-webkit-scrollbar {
     width: 10px;
-    background-color: #F5F5F5;
+    background-color: ${color.altGrey};
   }
 
   ::-webkit-scrollbar-track {
-    background-color: #F5F5F5;
+    background-color: ${color.altGrey};
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: grey;
+    background-color: ${color.grey};
   }
   
   ::-webkit-scrollbar-thumb:hover {
-    background: dimGray; 
+    background: ${color.dimGrey}; 
   }
 `;
 
@@ -41,5 +42,4 @@ export const BootForm = styled(Form.Control)`
 export const BootBody = styled(Card.Body)`
   text-align: center;
   font-size: 24px;
-
 `;

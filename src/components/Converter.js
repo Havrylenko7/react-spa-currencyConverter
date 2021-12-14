@@ -8,6 +8,9 @@ const Converter = () => {
   const rates = useSelector(state => state.currencyReducer.rates);
   const ratesEntries = [...Object.entries(rates.eur)];
 
+  ratesEntries.splice(18, 1);
+  ratesEntries.splice(37, 1);
+
   return (
     <BootCard>
       <Formik
