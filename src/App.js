@@ -1,20 +1,15 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 import { Routes, Route } from 'react-router-dom';
-
-import Navigation from './components/Navigation';
-import Converter from './components/Converter';
-import Rates from './components/Rates';
-import Grid from './styled/App';
 import { useDispatch, useSelector } from 'react-redux';
-import { getCurrencyFetch } from './redux/ducks/actions';
 
+import { getCurrencyFetch } from './redux/ducks/currency';
+import { Navigation, Converter, Rates } from './components';
+import Grid from './styled/App';
 
-const App = () => {
-  
+const App = () => {  
   const dispatch = useDispatch();
-  const rates = useSelector(state => state.myFirstReducer.rates);
+  const rates = useSelector(state => state.currencyReducer.rates);
 
   React.useEffect(() => {
     dispatch(getCurrencyFetch())

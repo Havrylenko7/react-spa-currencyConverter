@@ -1,14 +1,17 @@
 import { Nav } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import { BootNav } from '../styled/Navigation';
+import { BootLink } from  '../styled/Navigation';
 
 const Navigation = () => 
   <Nav justify variant="pills">
     <Nav.Item>
-      <BootNav as={Link} to="/rates">Exchange rates</BootNav>
+      <Nav.Link as={BootLink} to="/rates" activeClassName="active">
+        Rates
+      </Nav.Link>
     </Nav.Item>
     <Nav.Item>
-      <BootNav as={Link} to="/converter">Currency converter</BootNav>
+      <Nav.Link as={BootLink} to="/converter" activeClassName="active">
+        Convert
+      </Nav.Link>
     </Nav.Item>
   </Nav>
 ;

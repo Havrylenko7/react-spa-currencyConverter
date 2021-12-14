@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import { Nav } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
+
 import { color } from './Global';
 
-export const BootNav = styled(Nav)`
+export const BootLink = styled(NavLink)`
   color: ${color.white};
-  text-decoration: none;
   
   :hover {
     color: ${color.white};

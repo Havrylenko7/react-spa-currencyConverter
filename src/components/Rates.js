@@ -1,33 +1,55 @@
 import React from 'react';
-import { ListGroup, Form} from 'react-bootstrap';
 import { useSelector } from 'react-redux';
-import { BootItem } from '../styled/Rates';
 
-const Rates = () => {
-  
+import { BootItem, BootControl, BootCard, BootButton, BootListGroup, BootSelect } from '../styled/Rates';
+
+const Rates = () => {  
   const [searchField, setSearchField] = React.useState('');
-  const rates = useSelector(state => state.myFirstReducer.rates);
+  const [prefered, setPrefered] = React.useState([]);
+  const [base, setBase] = React.useState(['eur', 1]);
+
+  const rates = useSelector(state => state.currencyReducer.rates);
   const ratesEntries = [...Object.entries(rates.eur)];
 
-  const handleChange = event => {
+  ratesEntries.splice(18, 1);
+  ratesEntries.splice(37, 1);
+
+  const handleChange = (event) => {
     setSearchField(event.target.value);
   };  
 
   return (
-    <div>
-      <Form.Control size="lg" type="search" placeholder="Search" onChange={handleChange}/>
-      <br />
-      <ListGroup>
+    <BootCard>
+      {prefered
+        .map((item) => (
+          <BootItem key={item}>
+            {base[0]} to {item[0]} {(item[1]/base[1]).toFixed(2)}
+          </BootItem>
+        ))
+      }
+      <BootSelect value={base} onChange={event => setBase(event.target.value.split(',', 3))}>
         {ratesEntries
-          .filter((item) => item[0].includes(searchField.toLowerCase()))
-          .map((item) => 
-            <BootItem key={item}>
-              EUR to {item[0]} {item[1].toFixed(2)}
+          .map((item) => (
+            <BootItem as="option" key={item} value={item}>
+              {item[0]}
             </BootItem>
-          )
+          ))
         }
-      </ListGroup>
-    </div>
+      </BootSelect>
+      <BootControl size="lg" type="search" placeholder="Search" onChange={handleChange}/>
+      <BootListGroup>
+        {ratesEntries
+          .filter((item) => (item[0].includes(searchField.toLowerCase())))
+          .map((item) => (
+            <BootItem key={item}>
+              {base[0]} to {item[0]} {(item[1]/base[1]).toFixed(2)}
+              <BootButton type="radio" onClick={() => setPrefered([...prefered, item])}>
+              </BootButton>
+            </BootItem>
+          ))
+        }
+      </BootListGroup>
+    </BootCard>
   );
 }
 
