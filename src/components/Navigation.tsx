@@ -1,7 +1,7 @@
 import { Nav } from 'react-bootstrap';
 import { BootLink } from  '../styled/Navigation';
 
-const Navigation = () => 
+const Navigation = () => (
   <Nav justify variant="pills">
     <Nav.Item>
       <Nav.Link as={BootLink} to="/rates" activeClassName="active">
@@ -14,6 +14,6 @@ const Navigation = () =>
       </Nav.Link>
     </Nav.Item>
   </Nav>
-;
+);
 
 export default Navigation;

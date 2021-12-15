@@ -7,7 +7,7 @@ export const getCurrencyFetch = () => ({
   type: GET_CURRENCY_FETCH
 });
 
-export const currencyReducer = (state = { rates: [] }, action) => {
+export const currencyReducer = (state = { rates: [] }, action: any ) => {
   switch (action.type) {
     case GET_CURRENCY_SUCCESS:
       return { ...state, rates: action.rates }
@@ -16,15 +16,15 @@ export const currencyReducer = (state = { rates: [] }, action) => {
   }
 };
 
-function currencyFetch() {
-  return fetch('https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/eur.json').then(response => response.json());
-}
+const currencyFetch = () => (
+  fetch('https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/eur.json').then(response => response.json())
+);
 
 function* workGetCurrencyFetch() {
-  const rates = yield call(currencyFetch);
+  const rates: string = yield call(currencyFetch);
   yield put({ type: GET_CURRENCY_SUCCESS, rates})
-}
+};
 
 export function* saga() {
   yield takeEvery(GET_CURRENCY_FETCH, workGetCurrencyFetch);
-}
+};

@@ -5,7 +5,7 @@ import { BootItem, BootControl, BootCard, BootButton, BootListGroup, BootSelect 
 
 const Rates = () => {  
   const [searchField, setSearchField] = React.useState('');
-  const [prefered, setPrefered] = React.useState([]);
+  const [preferred, setPreferred] = React.useState([]);
   const [base, setBase] = React.useState(['eur', 1]);
 
   const rates = useSelector(state => state.currencyReducer.rates);
@@ -15,12 +15,12 @@ const Rates = () => {
   ratesEntries.splice(37, 1);
 
   const handleChange = (event) => {
-    setSearchField(event.target.value);
+    setSearchField(event.target.value)
   };  
 
   return (
     <BootCard>
-      {prefered
+      {preferred
         .map((item) => (
           <BootItem key={item}>
             {base[0]} to {item[0]} {(item[1]/base[1]).toFixed(2)}
@@ -43,7 +43,7 @@ const Rates = () => {
           .map((item) => (
             <BootItem key={item}>
               {base[0]} to {item[0]} {(item[1]/base[1]).toFixed(2)}
-              <BootButton type="radio" onClick={() => setPrefered([...prefered, item])}>
+              <BootButton type="radio" onClick={() => setPreferred([...preferred, item])}>
               </BootButton>
             </BootItem>
           ))
@@ -51,6 +51,6 @@ const Rates = () => {
       </BootListGroup>
     </BootCard>
   );
-}
+};
 
 export default Rates;

@@ -13,7 +13,7 @@ const App = () => {
 
   React.useEffect(() => {
     dispatch(getCurrencyFetch())
-  }, [])
+  }, []);
 
   if (rates.eur === undefined) {
     return <div className="loading">Loading...</div>;
@@ -26,8 +26,8 @@ const App = () => {
           <Route path="/converter" element={<Converter />}/>
         </Routes> 
       </Grid>
-    );
-  }
-}
+    )
+  };
+};
 
 export default App;
