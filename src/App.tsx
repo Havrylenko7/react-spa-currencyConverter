@@ -1,21 +1,22 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Routes, Route } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { getCurrencyFetch } from './redux/ducks/currency';
 import { Navigation, Converter, Rates } from './components';
 import Grid from './styled/App';
+import { useTypedSelector } from './redux/store';
 
-const App = () => {  
+const App: React.FC = () => {
+  const rates: any = useTypedSelector(state => state.currencyReducer.rates);
   const dispatch = useDispatch();
-  const rates = useSelector(state => state.currencyReducer.rates);
 
   React.useEffect(() => {
     dispatch(getCurrencyFetch())
   }, []);
 
-  if (rates.eur === undefined) {
+  if (rates === undefined) {
     return <div className="loading">Loading...</div>;
   } else {
     return (
