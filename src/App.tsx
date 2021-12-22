@@ -9,15 +9,15 @@ import Grid from './styled/App';
 import { useTypedSelector } from './redux/store';
 
 const App: React.FC = () => {
-  const rates: any = useTypedSelector(state => state.currencyReducer.rates);
+  const rates: {date: number, eur: []} = useTypedSelector(state => state.currencyReducer.rates);
   const dispatch = useDispatch();
 
   React.useEffect(() => {
     dispatch(getCurrencyFetch())
   }, []);
-
+  
   if (rates === undefined) {
-    return <div className="loading">Loading...</div>;
+    return <div className="loading">Loading...</div>
   } else {
     return (
       <Grid>

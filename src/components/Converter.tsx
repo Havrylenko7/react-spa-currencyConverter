@@ -5,9 +5,9 @@ import { BootCard, CoverOption, BootField, BootForm, BootBody } from '../styled/
 import { useTypedSelector } from '../redux/store';
 
 const Converter: React.FC = () => {
-  const rates: any = useTypedSelector(state => state.currencyReducer.rates);
+  const rates: {date: number, eur: []} = useTypedSelector(state => state.currencyReducer.rates);
 
-  const ratesEntries = [...Object.entries(rates.eur)];
+  const ratesEntries: any[] = [...Object.entries(rates.eur)];
 
   ratesEntries.splice(18, 1);
   ratesEntries.splice(37, 1);

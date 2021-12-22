@@ -4,24 +4,25 @@ import { BootItem, BootControl, BootCard, BootButton, BootListGroup, BootSelect 
 import { useTypedSelector } from '../redux/store';
 
 const Rates: React.FC = () => {
-  const [searchField, setSearchField]: any = React.useState('');
-  const [preferred, setPreferred]: any = React.useState([]);
-  const [base, setBase]: any = React.useState(['eur', 1]);
+  const rates: {date: number, eur: []} = useTypedSelector(state => state.currencyReducer.rates);
 
-  const rates: any = useTypedSelector(state => state.currencyReducer.rates);
-  const ratesEntries: any = [...Object.entries(rates.eur)];
+  const [searchField, setSearchField] = React.useState<string>('');
+  const [preferred, setPreferred] = React.useState<[string, number] | undefined[]>([]);
+  const [base, setBase] = React.useState<[string, number] | any[]>(['eur', 1]);
+
+  const ratesEntries: any[] = [...Object.entries(rates.eur)];
 
   ratesEntries.splice(18, 1);
   ratesEntries.splice(37, 1);
 
   const basePicker = (event: React.FormEvent<HTMLInputElement>) => {
-    setBase(event.currentTarget.value.split(',', 3))
-  }
-
-  const search = (event: React.FormEvent<HTMLInputElement>) => {
-    setSearchField(event.currentTarget.value)
+    setBase(event.currentTarget.value.split(',', 3));
   };
 
+  const search = (event: React.FormEvent<HTMLInputElement>) => {
+    setSearchField(event.currentTarget.value);
+  };
+  
   return (
     <BootCard>
       {preferred

@@ -1,8 +1,8 @@
 import { combineReducers, createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from '@redux-saga/core';
+import { TypedUseSelectorHook, useSelector } from 'react-redux';
 
 import { currencyReducer, saga } from './ducks/currency';
-import { TypedUseSelectorHook, useSelector } from 'react-redux';
 
 const sagaMiddleware = createSagaMiddleware();
 export const rootReducer = combineReducers({ currencyReducer });
