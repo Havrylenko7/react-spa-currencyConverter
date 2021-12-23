@@ -2,4 +2,6 @@
 
 exports[`App renders correctly 1`] = `ShallowWrapper {}`;
 
+exports[`App should match a snapshot 1`] = `ShallowWrapper {}`;
+
 exports[`renders correctly 1`] = `ShallowWrapper {}`;

@@ -2,4 +2,6 @@
 
 exports[`Rates corenders correctly 1`] = `ShallowWrapper {}`;
 
+exports[`Rates should match a snapshot 1`] = `ShallowWrapper {}`;
+
 exports[`renders correctly 1`] = `ShallowWrapper {}`;

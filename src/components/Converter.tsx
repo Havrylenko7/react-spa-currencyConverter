@@ -7,7 +7,7 @@ import { useTypedSelector } from '../redux/store';
 const Converter: React.FC = () => {
   const rates: {date: number, eur: []} = useTypedSelector(state => state.currencyReducer.rates);
 
-  const ratesEntries: any[] = [...Object.entries(rates.eur)];
+  const ratesEntries: [string, number][] = [...Object.entries(rates.eur)];
 
   ratesEntries.splice(18, 1);
   ratesEntries.splice(37, 1);
@@ -21,16 +21,16 @@ const Converter: React.FC = () => {
           <div>
             <Field as={BootField} name="firstSelected">
               <CoverOption>Pick currency</CoverOption>
-              {values.entries.map((item: any) => (
-                <option key={item} value={`${item[1]}`}>
+              {values.entries.map((item: [string, number]) => (
+                <option key={item[0]} value={`${item[1]}`}>
                   {item[0]}
                 </option>
               ))}
             </Field>
             <Field as={BootField} name="secondSelected">
               <CoverOption>Convert into</CoverOption>
-              {values.entries.map((item: any) => (
-                <option key={item} value={`${item[1]}`}>
+              {values.entries.map((item: [string, number]) => (
+                <option key={item[0]} value={`${item[1]}`}>
                   {item[0]}
                 </option>
               ))}        

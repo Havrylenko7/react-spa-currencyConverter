@@ -7,7 +7,7 @@ import store from '../redux/store';
 
 configure({ adapter: new Adapter() });
 
-it('Navigation renders correctly', () => {
+it('Navigation should match a snapshot', () => {
   const navigation = shallow(<Provider store={store}><Navigation /></Provider>)
   expect(navigation).toMatchSnapshot()
 });

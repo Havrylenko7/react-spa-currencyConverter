@@ -10,13 +10,14 @@ import { useTypedSelector } from './redux/store';
 
 const App: React.FC = () => {
   const rates: {date: number, eur: []} = useTypedSelector(state => state.currencyReducer.rates);
+
   const dispatch = useDispatch();
 
   React.useEffect(() => {
     dispatch(getCurrencyFetch())
   }, []);
   
-  if (rates === undefined) {
+  if (Object.keys(rates)[0] !== 'date'){
     return <div className="loading">Loading...</div>
   } else {
     return (

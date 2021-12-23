@@ -10,7 +10,7 @@ const Rates: React.FC = () => {
   const [preferred, setPreferred] = React.useState<[string, number] | undefined[]>([]);
   const [base, setBase] = React.useState<[string, number] | any[]>(['eur', 1]);
 
-  const ratesEntries: any[] = [...Object.entries(rates.eur)];
+  const ratesEntries: [string, number][] = [...Object.entries(rates.eur)];
 
   ratesEntries.splice(18, 1);
   ratesEntries.splice(37, 1);
@@ -44,7 +44,7 @@ const Rates: React.FC = () => {
       <BootControl size="lg" type="search" placeholder="Search" onChange={search}/>
       <BootListGroup>
         {ratesEntries
-          .filter((item: any) => (item[0].includes(searchField.toLowerCase())))
+          .filter((item: [string, number]) => (item[0].includes(searchField.toLowerCase())))
           .map((item: any) => (
             <BootItem key={item}>
               {base[0]} to {item[0]} {(item[1]/base[1]).toFixed(2)}

@@ -7,7 +7,7 @@ import store from '../redux/store';
 
 configure({ adapter: new Adapter() });
 
-it('Rates corenders correctly', () => {
+it('Rates should match a snapshot', () => {
   const rates = shallow(<Provider store={store}><Rates /></Provider>)
   expect(rates).toMatchSnapshot()
 });

@@ -7,7 +7,7 @@ import store from '../redux/store';
 
 configure({ adapter: new Adapter() });
 
-it('App renders correctly', () => {
+it('App should match a snapshot', () => {
   const app = shallow(<Provider store={store}><App /></Provider>)
   expect(app).toMatchSnapshot()
 });

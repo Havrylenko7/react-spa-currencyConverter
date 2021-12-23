@@ -2,4 +2,6 @@
 
 exports[`Converter renders correctly 1`] = `ShallowWrapper {}`;
 
+exports[`Converter should match a snapshot 1`] = `ShallowWrapper {}`;
+
 exports[`renders correctly 1`] = `ShallowWrapper {}`;

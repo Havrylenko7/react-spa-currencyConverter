@@ -2,4 +2,6 @@
 
 exports[`Navigation renders correctly 1`] = `ShallowWrapper {}`;
 
+exports[`Navigation should match a snapshot 1`] = `ShallowWrapper {}`;
+
 exports[`renders correctly 1`] = `ShallowWrapper {}`;

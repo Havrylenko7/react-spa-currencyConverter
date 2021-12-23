@@ -7,7 +7,7 @@ import store from '../redux/store';
 
 configure({ adapter: new Adapter() });
 
-it('Converter renders correctly', () => {
+it('Converter should match a snapshot', () => {
   const converter = shallow(<Provider store={store}><Converter /></Provider>)
   expect(converter).toMatchSnapshot()
 });
