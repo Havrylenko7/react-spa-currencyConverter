@@ -9,9 +9,18 @@ const Converter: React.FC = () => {
 
   const ratesEntries: [string, number][] = [...Object.entries(rates.eur)];
 
-  ratesEntries.splice(18, 1);
-  ratesEntries.splice(37, 1);
+  const removeUselessAPI = (): void => {
+    ratesEntries.splice(168, 2);
+    ratesEntries.splice(163, 1);
+    ratesEntries.splice(95, 1);
+    ratesEntries.splice(38, 1);
+    ratesEntries.splice(24, 1);
+    ratesEntries.splice(18, 2);
+    ratesEntries.splice(13, 1);
+  };
 
+  removeUselessAPI();
+  
   return (
     <BootCard>
       <Formik

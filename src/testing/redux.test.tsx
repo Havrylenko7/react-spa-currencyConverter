@@ -1,22 +1,27 @@
-import { currencyReducer, getCurrencySuccess, getCurrencyFetch, workGetCurrencyFetch, saga, CurrencyState, initialState} from '../redux/ducks/currency';
+import { currencyReducer, getCurrencySuccess, getCurrencyFetch, workGetCurrencyFetch, initialState} from '../redux/ducks/currency';
+import { currencyFetch } from '../api'
 
-describe ('Redux testing', () => {
-
-  it('getCurrencySuccess', () => {
+describe ('Store', () => {
+  it('should get success', () => {
     expect(getCurrencySuccess('rates')).toEqual({
       type: 'GET_CURRENCY_SUCCESS',
       payload: 'rates'
     });
   });
 
-  it('getCurrencyFetch', () => {
+  it('should get fetch', () => {
     expect(getCurrencyFetch()).toEqual({
       type: 'GET_CURRENCY_FETCH'
-    }); 
+    });
   });
 
-  it('currencyReducer', () => {
+  it('should compare initialState', () => {
     const root = currencyReducer(initialState, workGetCurrencyFetch());
     expect(root).toEqual(initialState)
-  })
+  });
+
+  it('should compare api', () => {
+    const api = Promise.resolve(workGetCurrencyFetch());
+    expect(api).toEqual(currencyFetch());
+  });
 });

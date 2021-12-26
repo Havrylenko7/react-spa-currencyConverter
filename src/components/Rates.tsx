@@ -12,14 +12,23 @@ const Rates: React.FC = () => {
 
   const ratesEntries: [string, number][] = [...Object.entries(rates.eur)];
 
-  ratesEntries.splice(18, 1);
-  ratesEntries.splice(37, 1);
+  const removeUselessAPI = (): void => {
+    ratesEntries.splice(168, 2);
+    ratesEntries.splice(163, 1);
+    ratesEntries.splice(95, 1);
+    ratesEntries.splice(38, 1);
+    ratesEntries.splice(24, 1);
+    ratesEntries.splice(18, 2);
+    ratesEntries.splice(13, 1);
+  };
 
-  const basePicker = (event: React.FormEvent<HTMLInputElement>) => {
+  removeUselessAPI();
+
+  const basePicker = (event: React.FormEvent<HTMLInputElement>): void => {
     setBase(event.currentTarget.value.split(',', 3));
   };
 
-  const search = (event: React.FormEvent<HTMLInputElement>) => {
+  const search = (event: React.FormEvent<HTMLInputElement>): void => {
     setSearchField(event.currentTarget.value);
   };
   
@@ -48,8 +57,7 @@ const Rates: React.FC = () => {
           .map((item: any) => (
             <BootItem key={item}>
               {base[0]} to {item[0]} {(item[1]/base[1]).toFixed(2)}
-              <BootButton type="radio" onClick={() => setPreferred([...preferred, item])}>
-              </BootButton>
+              <BootButton type="radio" onClick={() => setPreferred([...preferred, item])}/>
             </BootItem>
           ))
         }
