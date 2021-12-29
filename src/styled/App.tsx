@@ -26,4 +26,4 @@ export const Loader = styled.div`
   font-size: 26px;
   text-align: center;
   font-family: Fantasy;
-`
+`;

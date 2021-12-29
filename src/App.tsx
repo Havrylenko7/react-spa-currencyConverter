@@ -16,7 +16,7 @@ const App: React.FC = () => {
   useEffect(() => {
     dispatch(getCurrencyFetch());
   }, []);
-  
+
   if (Object.keys(rates)[0] !== 'date') {
     return <Loader>Loading...</Loader>
   } else {

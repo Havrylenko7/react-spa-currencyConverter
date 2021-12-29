@@ -1,5 +1,5 @@
 import { Provider } from 'react-redux';
-import { shallow, configure } from 'enzyme';
+import { shallow, configure, ShallowWrapper } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 
 import Converter from '../components/Converter';
@@ -10,7 +10,7 @@ configure({ adapter: new Adapter() });
 const converter = () => shallow(<Provider store={store}><Converter /></Provider>);
 
 describe('Converter', () => {
-  let component: any;
+  let component: ShallowWrapper;
 
   beforeEach(() => {
     component = converter();

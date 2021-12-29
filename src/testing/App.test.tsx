@@ -1,5 +1,5 @@
 import { Provider } from 'react-redux';
-import { shallow, configure } from 'enzyme';
+import { shallow, configure, ShallowWrapper } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 
 import App from '../App';
@@ -10,7 +10,7 @@ configure({ adapter: new Adapter() });
 const app = () => shallow(<Provider store={store}><App /></Provider>);
 
 describe('App', () => {
-  let component: any;
+  let component: ShallowWrapper;
   
   beforeEach(() => {
     component = app();
