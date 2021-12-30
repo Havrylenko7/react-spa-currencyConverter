@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { color, media } from './Global';
 
-const Grid = styled.div`
+export const Grid = styled.div`
   display: grid;
   font-size: 18px;
   font-family: Fantasy;
@@ -22,4 +22,8 @@ const Grid = styled.div`
   }
 `;
 
-export default Grid;
+export const Loader = styled.div`  
+  font-size: 26px;
+  text-align: center;
+  font-family: Fantasy;
+`;

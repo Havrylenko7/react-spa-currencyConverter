@@ -1,7 +1,6 @@
 # Currency converter app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-Also you need [styled-components](https://styled-components.com/docs/basics#installation), [React-Bootstrap](https://react-bootstrap.netlify.app/getting-started/introduction) for this project.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). Also you need [styled-components](https://styled-components.com/docs/basics#installation), [React-Bootstrap](https://react-bootstrap.netlify.app/getting-started/introduction), [Redux](https://redux.js.org/introduction/getting-started), [Redux-Saga](https://redux-saga.js.org/docs/introduction/GettingStarted), [React Router](https://reactrouter.com/docs/en/v6/getting-started/installation), [Formik](https://formik.org/docs/overview), [TypeScript](https://create-react-app.dev/docs/adding-typescript/), [Jest](https://jestjs.io/docs/getting-started), [Enzyme](https://enzymejs.github.io/enzyme/) for this project.
 
 ## Available Scripts
 

@@ -5,9 +5,9 @@ export const color = {
   grey: 'grey',
   dimGrey: 'dimGray',
   altGrey: '#F5F5F5'
-}
+};
 
 export const media = {
   tabletWidth: '850px',
   phoneWidth: '550px'
-}
+};
